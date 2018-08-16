@@ -1,0 +1,244 @@
+<!doctype html>
+<html style="width: 70%; height: 100%;">
+<head>
+    <meta name = "TicTacToe" content = "Attain the ultimate victory over your foe with a battle of wits";>
+    <title> TicTacToe </title>
+    <link rel="stylesheet" href="TTTstyles.css">
+    <script src = "TTTlogic.js"></script>
+    <script src = "TTTlogic.js"></script>
+</head>
+<body style="width: 100%; height: 100%;">
+
+<div class = "column" id = "mainDiv">
+
+    <div class = "row"> 
+        <div class="cell" onclick="clicked1()" id = "1">
+
+        </div>
+
+        <div class="cell" onclick="clicked2()" id = "2">
+
+        </div>
+
+        <div class="cell" onclick="clicked3()" id = "3">
+
+        </div>
+    </div>
+
+    <div class = "row">
+        <div class="cell" onclick="clicked4()" id = "4">
+
+        </div>
+
+        <div class="cell" onclick="clicked5()" id = "5">
+
+        </div>
+
+        <div class="cell" onclick="clicked6()" id = "6">
+
+        </div>
+    </div>
+    
+    <div class = "row">
+        <div class="cell" onclick="clicked7()" id = "7">
+
+        </div>
+
+        <div class="cell" onclick="clicked8()" id = "8">
+
+        </div>
+
+        <div class="cell" onclick="clicked9()" id = "9">
+
+        </div>
+    </div>
+
+</div>
+ <div class = "hide" id = "won">
+        YOU WON!
+    </div>
+    <div class = "hide" id = "lost">
+        YOU LOST!
+    </div>
+    
+<script>
+    var players = [0, 0, 0, 
+                   0, 0, 0,
+                   0, 0, 0]
+    var win = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+        [1, 4, 7],
+        [2, 5, 8],
+        [3, 6, 9],
+        [1, 5, 9],
+        [3, 5, 7]
+    ]
+
+    var box1 = 0;
+    var box2 = 0;
+    var box3 = 0;
+    var box4 = 0;
+    var box5 = 0;
+    var box6 = 0;
+    var box7 = 0;
+    var box8 = 0;
+    var box9 = 0;
+    
+    function clicked1(){
+        if(players[0] === 0){
+            document.getElementById("1").innerHTML = "X"
+            players[0]  = 1;
+            if(didIWin(players, 1) === false){
+                didIWin(players, 1);
+                myMove();
+                fillInO();
+                didIWin(players, 2);
+            }
+        }
+    }
+    function clicked2(){
+        if(players[1] === 0){   
+            document.getElementById("2").innerHTML = "X"
+            players[1]  = 1;
+            if(didIWin(players, 1) === false){
+                didIWin(players, 1);
+                myMove();
+                fillInO();
+                didIWin(players, 2);
+            }
+        }
+    }    
+    function clicked3(){
+        if(players[2] === 0){   
+            document.getElementById("3").innerHTML = "X"
+            players[2]  = 1;
+            if(didIWin(players, 1) === false){
+                didIWin(players, 1);
+                myMove();
+                fillInO();
+                didIWin(players, 2);
+            }
+        }
+    }    
+    function clicked4(){
+        if(players[3] === 0){
+            document.getElementById("4").innerHTML = "X"
+            players[3]  = 1;
+            if(didIWin(players, 1) === false){
+                didIWin(players, 1);
+                myMove();
+                fillInO();
+                didIWin(players, 2);
+            }
+        }
+    }    
+    function clicked5(){
+        if(players[4] === 0){
+            document.getElementById("5").innerHTML = "X"
+            players[4]  = 1;
+            if(didIWin(players, 1) === false){
+                didIWin(players, 1);
+                myMove();
+                fillInO();
+                didIWin(players, 2);
+            }
+        }
+    }    
+    function clicked6(){
+        if(players[5] === 0){
+            document.getElementById("6").innerHTML = "X"
+            players[5]  = 1;
+            if(didIWin(players, 1) === false){
+                didIWin(players, 1);
+                myMove();
+                fillInO();
+                didIWin(players, 2);
+            }
+        }
+    }    
+    function clicked7(){
+        if(players[6] === 0){
+            document.getElementById("7").innerHTML = "X"
+            players[6]  = 1;
+            if(didIWin(players, 1) === false){
+                didIWin(players, 1);
+                myMove();
+                fillInO();
+                didIWin(players, 2);
+            }
+        }
+    }   
+    function clicked8(){
+        if(players[7] === 0){
+            document.getElementById("8").innerHTML = "X"
+            players[7]  = 1;
+            if(didIWin(players, 1) === false){
+                didIWin(players, 1);
+                myMove();
+                fillInO();
+                didIWin(players, 2);
+            }
+        }
+    }    
+    function clicked9(){
+        if(players[8] === 0){
+            document.getElementById("9").innerHTML = "X"
+            players[8]  = 1;
+            if(didIWin(players, 1) === false){
+                didIWin(players, 1);
+                myMove();
+                fillInO();
+                didIWin(players, 2);
+            }
+        }
+    }
+
+    function didIWin(numsArray, key){
+        for (var i = 0 ; i < win.length ; i++) {
+            var correct = 0;
+            for (var k = 0 ; k < win[i].length ; k++) {
+                if (numsArray[win[i][k] - 1] === key){
+                    console.log("what is win[i][k]", win[i][k], win[i])
+                    correct++;
+                }
+              
+            }
+            if (correct === 3) {
+                    console.log("here and correct")
+                    // for (var m = 1 ; m < 10 ; m ++) {
+                    // document.getElementById(m).innerHTML = ""
+                    // }
+                    if(key === 1){
+                        document.getElementById("won").style.display = "flex";
+                        document.getElementById("mainDiv").style.display = "none";
+                        setTimeout(myFunction, 3000)
+                    }
+                    if(key === 2){
+                        document.getElementById("lost").style.display = "flex";
+                        document.getElementById("mainDiv").style.display = "none";                        
+                        setTimeout(myFunction, 5000)
+                    }
+                    return true;
+                }
+        }
+        return false;
+    }
+    function fillInO(){
+        for (var i = 0 ; i < players.length ; i ++) {
+            if (players [i] === 2) {
+                var num = i + 1;
+                console.log("what is num to string", num.toString())
+                document.getElementById(num.toString()).innerHTML = "O";
+            }
+        }
+    }
+    function myFunction() {
+        location.reload();
+    }
+</script>
+
+</body>
+
+</html>
